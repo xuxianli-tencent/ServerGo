@@ -5,7 +5,7 @@ import (
 	"os"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	pb "github.com/freewebsys/grpc-go-demo/src/helloworld"
+	pb "github.com/xuxianli-tencent/ServerGo/src/helloworld"
 )
 
 const (
@@ -27,7 +27,7 @@ func main() {
 	if len(os.Args) > 1 {
 		name = os.Args[1]
 	}
-	r, err := c.SayHello(context.Background(), &pb.HelloRequest{Name: name})
+	r, err := c.Login(context.Background(), &pb.LoginRequest{Name: name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
