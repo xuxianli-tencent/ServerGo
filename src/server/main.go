@@ -5,7 +5,7 @@ import (
 	"net"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	pb "github.com/freewebsys/grpc-go-demo/src/helloworld"
+	pb "github.com/xuxianli-tencent/ServerGo/src/helloworld"
 	"google.golang.org/grpc/reflection"
 	"fmt"
 )
@@ -18,9 +18,9 @@ const (
 type server struct{}
 
 // SayHello implements helloworld.GreeterServer
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
-	fmt.Println("######### get client request name :"+in.Name)
-	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
+func (s *server) Login(ctx context.Context, in *pb.LoginRequest) (*pb.LoginReply, error) {
+	fmt.Println("######### get client logine name :"+in.Name)
+	return &pb.HelloReply{Message: "Login success" + in.Name}, nil
 }
 
 func main() {
